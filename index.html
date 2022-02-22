@@ -8,9 +8,19 @@
   <title>Tetiana's Page</title>
   <style>
 
-    body{
-      background-color: #947A57;
-    }
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #947A57;
+  
+}
+  
     .field {
       width: 400px;
       height: 300px;
@@ -105,7 +115,7 @@
 
     .wrapper {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         justify-items: center;
 
     }
@@ -144,7 +154,17 @@
 .highlight {
   background: #91331D;
 }
-  
+
+
+@media screen and (min-width: 600px) {
+
+  .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+
+    }
+  } 
   </style>
 </head>
 
@@ -205,7 +225,7 @@ ball.onclick = function(event) {
 </script>
 <!--------third field----------------------------------------------------------------->
 <div>
-<h2> Click on the first ball and then on another one</h2>
+<h2> Click on the ball</h2>
   <div class="field" id="field3">
     <div class="container">
     <img  src="images/ball.png" class="ball3" id="ball3">
