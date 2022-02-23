@@ -7,20 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tetiana's Page</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
 
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #947A57;
 
+    }
 
-* {
-  box-sizing: border-box;
-}
+    .wrapper {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      justify-items: center;
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #947A57;
-  
-}
-  
+    }
+
     .field {
       width: 400px;
       height: 300px;
@@ -40,251 +44,217 @@ body {
       transition: all 1s;
     }
 
-    #ball2{
-    max-width: 20%;
-    height: auto; 
-    position: absolute;
+    #ball2 {
+      max-width: 20%;
+      height: auto;
+      position: absolute;
     }
 
     .class1 {
-    animation: tennis 4s ease-out ;
+      animation: tennis 4s ease-out;
     }
 
-    @keyframes tennis
-{
-    0%
-    {
+    @keyframes tennis {
+      0% {
         top: 0px;
         left: 0px;
-        
-    }    
-    20%
-    {
+
+      }
+
+      20% {
         top: 220px;
         left: 80px;
-    }    
-    30%
-    {
+      }
+
+      30% {
         top: 20px;
         left: 120px;
-    }    
-    40%
-    {
+      }
+
+      40% {
         top: 220px;
         left: 160px;
-        
-    }    
-    50%
-    {
+
+      }
+
+      50% {
         top: 70px;
         left: 180px;
-      
-    }
-    60%
-    {
+
+      }
+
+      60% {
         top: 220px;
         left: 200px;
-      
-    }
-    70%
-    {
+
+      }
+
+      70% {
         top: 90px;
         left: 220px;
-      
-    }
-    80%
-    {
+
+      }
+
+      80% {
         top: 220px;
         left: 240px;
-      
-    }
-    90%
-    {
+
+      }
+
+      90% {
         top: 135px;
         left: 260px;
-      
-    }
-    100%
-    {
+
+      }
+
+      100% {
         top: 220px;
         left: 265px;
-      
-    }
-    
-}
 
-    .wrapper {
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        justify-items: center;
+      }
 
     }
 
-    .ball3{
-    position: unset;
-    left: unset;
+    .container {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+    }
+
+    .ball3-4 {
+      padding: 2%;
+      position: unset;
+      left: unset;
       top: unset;
-    max-width: 20%;
-    height: auto;
+      max-width: 25%;
+      height: auto;
     }
 
-    .ball4{
-        position: unset;
-    left: unset;
-      top: unset;
-    max-width: 20%;
-    height: auto;
+    .highlight {
+      background: #91331D;
     }
 
-    .ball3 {
-    grid-area: ba3;
-    margin: 3%;
-}
-.ball4 {
-    grid-area: ba4;
-    margin: 3%;
-} 
-    .container{
-        justify-items: center;
-        align-items: center;
-        flex-direction: column;
-        display: flex;                        
-    }
 
-.highlight {
-  background: #91331D;
-}
+    @media screen and (min-width: 600px) {
 
-
-@media screen and (min-width: 600px) {
-
-  .wrapper {
+      .wrapper {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         justify-items: center;
 
+      }
     }
-  } 
   </style>
 </head>
 
 <body style="height:2000px">
 
-<div class="wrapper">  
+  <div class="wrapper">
 
-  <!--------first field----------------------------------------------------------------->
-<div>
-  <h2> Click on the field</h2>
-  <div class="field" id="field">
-    <img src="images/ball.png" class="ball1" id="ball1"> 
-  </div>
-</div>
-  <script>
-    field.onclick = function(event) {
-
-   
-      let fieldCoords = this.getBoundingClientRect();
-
-      let ballCoords = {
-        top: event.clientY - fieldCoords.top - field.clientTop - ball1.clientHeight / 2,
-        left: event.clientX - fieldCoords.left - field.clientLeft - ball1.clientWidth / 2
-      };
-
-      if (ballCoords.top < 0) ballCoords.top = 0;
-
-      if (ballCoords.left < 0) ballCoords.left = 0;
-
-      if (ballCoords.left + ball.clientWidth > field.clientWidth) {
-        ballCoords.left = field.clientWidth - ball.clientWidth;
-      }
-
-      if (ballCoords.top + ball.clientHeight > field.clientHeight) {
-        ballCoords.top = field.clientHeight - ball.clientHeight;
-      }
-
-      ball1.style.left = ballCoords.left + 'px';
-      ball1.style.top = ballCoords.top + 'px';
-    }
-  </script>
-
-<!--------second field----------------------------------------------------------------->
-<div>
-  <h2> Click on the ball</h2>
-    <div class="field" id="field2">
-      <img src="images/ball.png" id="ball2"> 
+    <!--------first field----------------------------------------------------------------->
+    <div>
+      <h2> Click on the field</h2>
+      <div class="field" id="field">
+        <img src="images/ball.png" class="ball1" id="ball1">
+      </div>
     </div>
-  </div>
-  <script>
-  let ball = document.getElementById('ball2');
-  
-  ball.addEventListener('click', (e) => {
-     e.target.classList.toggle('class1');
-  });
-  
+    <script>
+      field.onclick = function (event) {
 
-  </script>
+        let fieldCoords = this.getBoundingClientRect();
 
-<!--------third field----------------------------------------------------------------->
-<div>
-<h2> Click on the ball</h2>
-  <div class="field" id="field3">
-    <div class="container">
-    <img  src="images/ball.png" class="ball3" id="ball3">
-    <div class="moveing">
-    <p>Where Did I Move?</p>
-    <p id="point">0, 0</p>
-    </div>
-    <img  src="images/ball.png" class="ball4" id="ball4">
-    </div>
-  </div>
-</div>
-  <script>
-      //moveing
-const demo  = document.querySelector('#field3');
-const point = document.querySelector('#point');
+        let ballCoords = {
+          top: event.clientY - fieldCoords.top - field.clientTop - ball1.clientHeight / 2,
+          left: event.clientX - fieldCoords.left - field.clientLeft - ball1.clientWidth / 2
+        };
 
+        if (ballCoords.top < 0) ballCoords.top = 0;
 
-demo.addEventListener('mousemove', (e) => {
-    point.innerHTML = e.offsetX + ', ' + e.offsetY;
-    
-    
-    console.log("Client: " , e.clientX , e.clientY)
-    console.log("Page: " , e.pageX , e.pageY)
-    console.log("Screen: " , e.screenX , e.screenY)
-    console.log("Event Object: ", e);
-});
-    //highlight(field);
-    let field = document.getElementById('field3');
+        if (ballCoords.left < 0) ballCoords.left = 0;
 
-    let selectedball;
-
-    field.onclick = function(event) {
-      let target = event.target;
-
-      while (target != this) {
-        if (target.id == 'ball3') {
-          //highlight(field);
-          field.classList.add('highlight');
-          return;
-        } else if (target.id == 'ball4') {
-        field.classList.remove('highlight');
-
+        if (ballCoords.left + ball.clientWidth > field.clientWidth) {
+          ballCoords.left = field.clientWidth - ball.clientWidth;
         }
 
-        target = target.parentNode;
-      }
-    }
+        if (ballCoords.top + ball.clientHeight > field.clientHeight) {
+          ballCoords.top = field.clientHeight - ball.clientHeight;
+        }
 
-    function highlight(node) {
-      if (selectedball) {
-        field.classList.remove('highlight');
+        ball1.style.left = ballCoords.left + 'px';
+        ball1.style.top = ballCoords.top + 'px';
       }
-      fild = node;
-      field.classList.add('highlight');
-    }
-  </script>
+    </script>
 
-</div>
+    <!--------second field----------------------------------------------------------------->
+    <div>
+      <h2> Click on the ball</h2>
+      <div class="field" id="field2">
+        <img src="images/ball.png" id="ball2">
+      </div>
+    </div>
+
+    <script>
+      let ball = document.getElementById('ball2');
+
+      ball.addEventListener('click', (e) => {
+        e.target.classList.toggle('class1');
+      });
+    </script>
+
+    <!--------third field----------------------------------------------------------------->
+    <div>
+      <h2> Click on the ball</h2>
+      <div class="field" id="field3">
+        <div class="container">
+          <img src="images/ball.png" class="ball3-4" id="ball3">
+          <div class="moveing">
+            <p>Where Did I Move?</p>
+            <p id="point">0, 0</p>
+          </div>
+          <img src="images/ball.png" class="ball3-4" id="ball4">
+        </div>
+      </div>
+    </div>
+    <script>
+      //mouse movement
+      const demo = document.querySelector('#field3');
+      const point = document.querySelector('#point');
+
+
+      demo.addEventListener('mousemove', (e) => {
+        point.innerHTML = e.offsetX + ', ' + e.offsetY;
+
+
+        console.log("Client: ", e.clientX, e.clientY)
+        console.log("Page: ", e.pageX, e.pageY)
+        console.log("Screen: ", e.screenX, e.screenY)
+        console.log("Event Object: ", e);
+      });
+
+
+      //highlight(field);
+      let field = document.getElementById('field3');
+
+      let ball3 = document.getElementById('ball3');
+
+      let ball4 = document.getElementById('ball4');
+
+      ball3.addEventListener('click', changeColor);
+
+      function changeColor(e) {
+        field.classList.add('highlight');
+      }
+
+      ball4.addEventListener('click', changeColor);
+
+      function changeColor(e) {
+        field.classList.toggle('highlight');
+      }
+    </script>
+
+  </div>
 
 </body>
+
 </html>
