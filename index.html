@@ -165,7 +165,7 @@
 
       field.addEventListener('click', (e) => {
         ball1.style.transform = `translateY(${e.clientY - 10 - field.clientTop - ball1.clientHeight / 2}px)`;
-        ball1.style.transform += `translateX(${e.clientX -10 - field.clientLeft - ball1.clientHeight / 2}px)`;
+        ball1.style.transform += `translateX(${e.clientX - 10 - field.clientLeft - ball1.clientHeight / 2}px)`;
       }, false);
     </script>
 
@@ -184,7 +184,7 @@
         e.target.classList.toggle('class1');
       });
     </script>
-
+    
     <!--------third field----------------------------------------------------------------->
     <div>
       <h2> Click on the ball</h2>
