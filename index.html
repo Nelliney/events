@@ -209,20 +209,19 @@ body {
 
 <!--------second field----------------------------------------------------------------->
 <div>
-<h2> Click on the ball</h2>
-  <div class="field" id="field2">
-    <img src="images/ball.png" id="ball2"> 
+  <h2> Click on the ball</h2>
+    <div class="field" id="field2">
+      <img src="images/ball.png" id="ball2"> 
+    </div>
   </div>
-</div>
-<script>
-let ball = document.getElementById('ball2');
-
-ball.onclick = function(event) {
+  <script>
+  let ball = document.getElementById('ball2');
   
-    ball.className = 'class1';
-  }
-
-</script>
+  ball.addEventListener('click', (e) => {
+     e.target.classList.toggle('class1');
+  });
+  
+  </script>
 <!--------third field----------------------------------------------------------------->
 <div>
 <h2> Click on the ball</h2>
