@@ -142,7 +142,6 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         justify-items: center;
-
       }
     }
   </style>
@@ -159,34 +158,18 @@
         <img src="images/ball.png" class="ball1" id="ball1">
       </div>
     </div>
-    <script>
-      field.onclick = function (event) {
+    <script defer>
+      let ball1 = document.getElementById('ball1');
 
-        let fieldCoords = this.getBoundingClientRect();
+      let field = document.getElementById('field');
 
-        let ballCoords = {
-          top: event.clientY - fieldCoords.top - field.clientTop - ball1.clientHeight / 2,
-          left: event.clientX - fieldCoords.left - field.clientLeft - ball1.clientWidth / 2
-        };
-
-        if (ballCoords.top < 0) ballCoords.top = 0;
-
-        if (ballCoords.left < 0) ballCoords.left = 0;
-
-        if (ballCoords.left + ball.clientWidth > field.clientWidth) {
-          ballCoords.left = field.clientWidth - ball.clientWidth;
-        }
-
-        if (ballCoords.top + ball.clientHeight > field.clientHeight) {
-          ballCoords.top = field.clientHeight - ball.clientHeight;
-        }
-
-        ball1.style.left = ballCoords.left + 'px';
-        ball1.style.top = ballCoords.top + 'px';
-      }
+      field.addEventListener('click', (e) => {
+        ball1.style.transform = `translateY(${e.clientY - 10 - field.clientTop - ball1.clientHeight / 2}px)`;
+        ball1.style.transform += `translateX(${e.clientX -10 - field.clientLeft - ball1.clientHeight / 2}px)`;
+      }, false);
     </script>
 
-    <!--------second field----------------------------------------------------------------->
+    <!--------second field---------------------------------------------------------------->
     <div>
       <h2> Click on the ball</h2>
       <div class="field" id="field2">
@@ -194,7 +177,7 @@
       </div>
     </div>
 
-    <script>
+    <script defer>
       let ball = document.getElementById('ball2');
 
       ball.addEventListener('click', (e) => {
@@ -224,14 +207,11 @@
 
       demo.addEventListener('mousemove', (e) => {
         point.innerHTML = e.offsetX + ', ' + e.offsetY;
-
-
         console.log("Client: ", e.clientX, e.clientY)
         console.log("Page: ", e.pageX, e.pageY)
         console.log("Screen: ", e.screenX, e.screenY)
         console.log("Event Object: ", e);
       });
-
 
       //highlight(field);
       let field = document.getElementById('field3');
@@ -251,8 +231,8 @@
       function changeColor(e) {
         field.classList.toggle('highlight');
       }
+      
     </script>
-
   </div>
 
 </body>
